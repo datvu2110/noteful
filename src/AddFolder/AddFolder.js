@@ -2,6 +2,7 @@ import React from 'react'
 import ApiContext from '../ApiContext'
 import NotePageNave from '../NotePageMain/NotePageMain'
 import config from '../config'
+import PropTypes from 'prop-types'
 
 
 
@@ -76,4 +77,9 @@ export default class AddFolder extends React.Component {
         </form> 
        ) 
     }
+}
+
+AddFolder.PropTypes={
+  name: PropTypes.string.isRequired,
+  content:PropTypes.string.isRequired,
 }
