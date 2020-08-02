@@ -63,7 +63,7 @@ export default class AddFolder extends React.Component {
     render() {
        return(
         <form onSubmit = {this.handleSubmit}>
-          <label for = "name">Folder Name</label>
+          <label htmlor = "name">Folder Name</label>
           <input 
           type='text'
           name='name'
@@ -79,7 +79,7 @@ export default class AddFolder extends React.Component {
     }
 }
 
-AddFolder.PropTypes={
+AddFolder:PropTypes.exact({
   name: PropTypes.string.isRequired,
   content:PropTypes.string.isRequired,
-}
+})

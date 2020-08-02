@@ -69,16 +69,17 @@ export default class AddNote extends React.Component {
        return(
         <div>
           <form onSubmit = {this.handleSubmit}>
-            <label for="folderSelection">Select a Folder</label>
+            <label htmlFor="folderSelection">Select a Folder</label>
             <select name="folderSelection" id="folderSelection">
-              {folderInfo.map(folder =>
+              {folderInfo.map((folder,id) =>
                 <option 
-                value={folder.id}              
+                value={folder.id}  
+                key={id}            
                 >{folder.name}</option>
                 )}
             </select>
 
-            <label for="name">Note name</label>
+            <label htmlFor="name">Note name</label>
             <input 
               type='text'
               name='name'
@@ -88,7 +89,7 @@ export default class AddNote extends React.Component {
               onChange= {(e) => this.setState({name: e.currentTarget.value})}
               required />
 
-            <label for="content">Content</label>
+            <label htmlFor="content">Content</label>
             <textarea 
               type='text'
               name='content'
@@ -105,8 +106,7 @@ export default class AddNote extends React.Component {
        ) 
     }
 }
-
-AddNote.propTypes = {
+AddNote:PropTypes.exact({
   name: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
-}
+  content:PropTypes.string.isRequired,
+})
